@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card mt-5 ">
+                <div class="card-header">
+                    <h3 class="text-md-center mt-2"> Vochar Details</h3>
+                    <p class="float-right mr-md-5 btn btn-dark">
+                        <a asp-action="AddVMaster">Add New Vochar </a>
+                    </p>
+                </div>
+                <div class="card-body ml-md-5">
+
+                    <table class="table table-responsive center ">
+                        <thead>
+                            <tr>
+                                <th class="font-weight-bold"> Reference Id </th>
+                                <th class="font-weight-bold"> PID Id </th>
+                                <th class="font-weight-bold"> Entry Date </th>
+                                <th class="font-weight-bold"> Cridet </th>
+                                <th class="font-weight-bold"> Debit </th>
+                                <th class="font-weight-bold"> Type </th>
+                                <th class="font-weight-bold"> Action </th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.refId</td>
+                                    <td>@item.PID</td>
+                                    <td>@item.EntryDate.ToString("dd-MMMM-yyyy hh:mm tt")</td>
+                                    <td>@item.Credit</td>
+                                    <td>@item.Debit</td>
+                                    <td>@item.Type</td>
+                                    <a asp-action="EditVochar" asp-route-id="@item.Id" class="class=" fa fa-edit mr-2" style="color:green"></a> |
+                                    <a asp-action="DeleteVochar" asp-route-id="@item.Id" class="fa fa-trash-alt" style="color:red"></a>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
